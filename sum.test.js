@@ -188,4 +188,47 @@ test("Caesar Cipher basic function, wrapping from z to a, same case, punctuation
   );
 });
 
-test("A function that takes an array of numbers and returns an object with the following properties: average, min, max, and length.", () => {});
+test("A function that takes an array of numbers and returns an object with the following properties: average, min, max, and length.", () => {
+
+  function analyze(arr) {
+    let sum = 0;
+
+    for (let i = 0; i<arr.length; i++) {
+      sum += arr[i];
+    }
+
+    let average = sum/arr.length;
+
+    let min = 999999999999999999999;
+
+    for (let f = 0; f<arr.length; f++) {
+
+      if (arr[f] < min) {
+        min = arr[f];
+      }
+
+    }
+
+    let max = -999999999999999999999;
+
+    for (let e = 0; e<arr.length; e++) {
+
+      if (arr[e] > max) {
+        max = arr[e];
+      }
+
+    }
+
+    return {
+      average: average,
+      min: min,
+      max: max,
+      length: arr.length
+    };
+
+  }
+
+  expect(analyze([1,5,3,9])).toEqual({average: 4.5, min: 1, max: 9, length: 4});
+
+
+});
